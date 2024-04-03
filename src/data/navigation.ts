@@ -233,7 +233,7 @@ export const NAVIGATION_DEMO_2: NavItemType[] = [
   // },
   {
     id: ncNanoId(),
-    href: "/search",
+    href: "/",
     name: "Kategori",
     type: "dropdown",
     children: OTHER_PAGE_CHILD,
