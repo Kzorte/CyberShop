@@ -140,14 +140,14 @@ const SectionHero2: FC<SectionHero2Props> = ({ className = "" }) => {
               <span className="nc-SectionHero2Item__subheading block text-base md:text-xl text-slate-700 font-medium">
                 {item.subHeading}
               </span>
-              <h2 className="nc-SectionHero2Item__heading font-semibold text-xl sm:text-lg md:text-xl xl:text-2xl 2xl:text-4xl !leading-[114%] text-slate-900">
+              <h2 className="nc-SectionHero2Item__heading font-semibold text-xl sm:text-lg md:text-xl xl:text-2xl 2xl:text-4xl !leading-[114%] text-black lg:inline hidden">
                 {item.heading}
               </h2>
             </div>
 
             <ButtonPrimary
               className="nc-SectionHero2Item__button dark:bg-slate-900 items-center"
-              sizeClass="py-3 px-6 sm:py-5 sm:px-9"
+              sizeClass="py-3 px-6 sm:py-5 sm:px-9 mx-10"
               href={item.btnLink}
             >
               <span>{item.btnText}</span>

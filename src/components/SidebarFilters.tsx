@@ -103,7 +103,7 @@ const SidebarFilters = () => {
   const renderTabsColor = () => {
     return (
       <div className="relative flex flex-col py-8 space-y-4">
-        <h3 className="font-semibold mb-2.5">Colors</h3>
+        <h3 className="font-semibold mb-2.5">Pengiriman</h3>
         {DATA_colors.map((item) => (
           <div key={item.name} className="">
             <Checkbox
