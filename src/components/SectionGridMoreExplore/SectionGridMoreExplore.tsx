@@ -18,7 +18,7 @@ export interface SectionGridMoreExploreProps {
 
 const SectionGridMoreExplore: FC<SectionGridMoreExploreProps> = ({
   className = "",
-  boxCard = "box4",
+  boxCard = "box6",
   gridClassName = "grid-cols-1 md:grid-cols-2 xl:grid-cols-4",
   data = DEMO_MORE_EXPLORE_DATA.filter((_, i) => i < 4),
 }) => {
