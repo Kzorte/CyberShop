@@ -24,7 +24,7 @@ const CardCategory6: FC<CardCategory6Props> = ({
 }) => {
   return (
     <div
-      className={`nc-CardCategory6 relative w-full aspect-w-2 aspect-h-1 h-auto p-auto rounded-3xl overflow-hidden bg-white dark:bg-neutral-900 group hover:nc-shadow-lg transition-shadow ${className}`}
+      className={`nc-CardCategory6 relative w-full xl:aspect-w-3 xl:aspect-h-2 lg:aspect-w-2 lg:aspect-h-1 md:aspect-w-3 md:aspect-h-2 aspect-w-3 aspect-h-2 rounded-3xl overflow-hidden bg-white dark:bg-neutral-900 group hover:nc-shadow-lg transition-shadow ${className}`}
     >
       <div>
         <div className="absolute bottom-0 right-0 top-0 opacity-10">
