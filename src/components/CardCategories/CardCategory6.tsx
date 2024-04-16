@@ -24,7 +24,7 @@ const CardCategory6: FC<CardCategory6Props> = ({
 }) => {
   return (
     <div
-      className={`nc-CardCategory6 relative w-full aspect-w-2 aspect-h-1 h-0 rounded-3xl overflow-hidden bg-white dark:bg-neutral-900 group hover:nc-shadow-lg transition-shadow ${className}`}
+      className={`nc-CardCategory6 relative w-full aspect-w-2 aspect-h-1 h-auto p-auto rounded-3xl overflow-hidden bg-white dark:bg-neutral-900 group hover:nc-shadow-lg transition-shadow ${className}`}
     >
       <div>
         <div className="absolute bottom-0 right-0 top-0 opacity-10">
@@ -51,7 +51,7 @@ const CardCategory6: FC<CardCategory6Props> = ({
 
           <Link
             href={"/not-found"}
-            className="flex items-center text-sm font-medium group-hover:text-primary-500 transition-colors"
+            className="h-5 flex items-center text-sm font-medium group-hover:text-primary-500 transition-colors"
           >
             <span>See Collection</span>
             <ArrowRightIcon className="w-4 ml-2.5" />
