@@ -10,7 +10,7 @@ const Page404 = () => (
       <header className="text-center max-w-2xl mx-auto space-y-2">
         <NcImage src={I404Png} alt="not-found" />
         <span className="block text-sm text-neutral-800 sm:text-base dark:text-neutral-200 tracking-wider font-medium">
-          {`THE PAGE YOU WERE LOOKING FOR DOESN'T EXIST.`}{" "}
+          {`Halaman Yang Anda Akses Masih Dalam Status Pembuatan.`}{" "}
         </span>
         <div className="pt-8">
           <ButtonPrimary href="/">Return Home Page</ButtonPrimary>

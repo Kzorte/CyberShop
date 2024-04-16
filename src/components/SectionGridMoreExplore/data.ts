@@ -18,6 +18,10 @@ import explore6Png from "@/images/collections/explore6.png";
 import explore7Png from "@/images/collections/explore7.png";
 import explore8Png from "@/images/collections/explore8.png";
 import explore9Png from "@/images/collections/explore9.png";
+import explore10Png from "@/images/collections/iphone1.png";
+import explore11Png from "@/images/collections/hero-2.png";
+import explore12Png from "@/images/collections/hero-3.png";
+import explore13Png from "@/images/collections/hero-4.png";
 
 export interface ExploreType {
   id: number;
@@ -32,64 +36,46 @@ export interface ExploreType {
 export const DEMO_MORE_EXPLORE_DATA_2: ExploreType[] = [
   {
     id: 4,
-    name: "Cycling Shorts",
-    desc: "Manufacturar",
-    image: explore9Png,
+    name: "Smartphone",
+    desc: "Electronic",
+    image: explore10Png,
     svgBg: explore9Svg,
     color: "bg-orange-50",
     count: 343,
   },
   {
     id: 5,
-    name: "Cycling Jersey",
-    desc: "Manufacturar",
-    image: explore5Png,
+    name: "Smartwatch",
+    desc: "Electronic",
+    image: explore12Png,
     svgBg: explore5Svg,
     color: "bg-blue-50",
     count: 222,
   },
   {
     id: 6,
-    name: "Car Coat",
-    desc: "Manufacturar",
-    image: explore6Png,
+    name: "Laptop",
+    desc: "Electronic",
+    image: explore11Png,
     svgBg: explore6Svg,
     color: "bg-orange-50",
     count: 155,
   },
   {
     id: 7,
-    name: "Sunglasses",
-    desc: "Manufacturar",
-    image: explore7Png,
+    name: "TV",
+    desc: "Electronic",
+    image: explore13Png,
     svgBg: explore7Svg,
     color: "bg-stone-100",
     count: 98,
-  },
-  {
-    id: 8,
-    name: "kid hats",
-    desc: "Manufacturar",
-    image: explore8Png,
-    svgBg: explore8Svg,
-    color: "bg-blue-50",
-    count: 33,
-  },
-  {
-    id: 9,
-    name: "Wool Jacket",
-    desc: "Manufacturar",
-    image: explore4Png,
-    svgBg: explore4Svg,
-    color: "bg-slate-100/80",
-    count: 122,
   },
 ];
 export const DEMO_MORE_EXPLORE_DATA: ExploreType[] = [
   {
     id: 1,
     name: "Backpack",
-    desc: "Manufacturar",
+    desc: "Electronic",
     image: explore1Png,
     svgBg: explore1Svg,
     color: "bg-indigo-50",
@@ -98,7 +84,7 @@ export const DEMO_MORE_EXPLORE_DATA: ExploreType[] = [
   {
     id: 2,
     name: "Shoes",
-    desc: "Manufacturar",
+    desc: "Electronic",
     image: explore2Png,
     svgBg: explore2Svg,
     color: "bg-slate-100/80",
@@ -107,7 +93,7 @@ export const DEMO_MORE_EXPLORE_DATA: ExploreType[] = [
   {
     id: 3,
     name: "Recycled Blanket",
-    desc: "Manufacturar",
+    desc: "Electronic",
     image: explore3Png,
     svgBg: explore3Svg,
     color: "bg-violet-50",
@@ -116,7 +102,7 @@ export const DEMO_MORE_EXPLORE_DATA: ExploreType[] = [
   {
     id: 4,
     name: "Cycling Shorts",
-    desc: "Manufacturar",
+    desc: "Electronic",
     image: explore9Png,
     svgBg: explore9Svg,
     color: "bg-orange-50",
@@ -125,7 +111,7 @@ export const DEMO_MORE_EXPLORE_DATA: ExploreType[] = [
   {
     id: 5,
     name: "Cycling Jersey",
-    desc: "Manufacturar",
+    desc: "Electronic",
     image: explore5Png,
     svgBg: explore5Svg,
     color: "bg-blue-50",
@@ -134,7 +120,7 @@ export const DEMO_MORE_EXPLORE_DATA: ExploreType[] = [
   {
     id: 6,
     name: "Car Coat",
-    desc: "Manufacturar",
+    desc: "Electronic",
     image: explore6Png,
     svgBg: explore6Svg,
     color: "bg-orange-50",

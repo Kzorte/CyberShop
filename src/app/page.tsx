@@ -5,15 +5,32 @@ import SectionSliderProductCard from "@/components/SectionSliderProductCard";
 import DiscoverMoreSlider from "@/components/DiscoverMoreSlider";
 import SectionClientSay from "@/components/SectionClientSay/SectionClientSay";
 import { PRODUCTS, SPORT_PRODUCTS } from "@/data/data";
+import BackgroundSection from "@/components/BackgroundSection/BackgroundSection";
+import SectionGridMoreExplore from "@/components/SectionGridMoreExplore/SectionGridMoreExplore";
+import { DEMO_MORE_EXPLORE_DATA_2 } from "@/components/SectionGridMoreExplore/data";
+import SectionPromo2 from "@/components/SectionPromo2";
 
 function PageHome() {
   return (
     <div className="nc-PageHome relative overflow-hidden">
-      <div className="container px-4">
+      <div className="container px-4 hidden xl:block">
         <SectionHero2 />
       </div>
 
-      <div className="mt-24 lg:mt-32">
+      <div className="xl:hidden">
+        {/* SECTION */}
+        <SectionPromo2 />
+      </div>
+
+      {/* SECTION */}
+      <div className="container relative space-y-24 my-24 lg:space-y-32 lg:my-32">
+        <div className="relative py-24 lg:py-32">
+            <BackgroundSection />
+            <SectionGridMoreExplore data={DEMO_MORE_EXPLORE_DATA_2} />
+          </div>
+      </div>
+
+      <div className="mt-24 lg:mt-32 xl:hidden">
         <DiscoverMoreSlider />
       </div>
 

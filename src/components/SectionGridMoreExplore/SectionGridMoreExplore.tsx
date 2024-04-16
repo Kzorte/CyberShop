@@ -19,8 +19,8 @@ export interface SectionGridMoreExploreProps {
 const SectionGridMoreExplore: FC<SectionGridMoreExploreProps> = ({
   className = "",
   boxCard = "box4",
-  gridClassName = "grid-cols-1 md:grid-cols-2 xl:grid-cols-3",
-  data = DEMO_MORE_EXPLORE_DATA.filter((_, i) => i < 6),
+  gridClassName = "grid-cols-1 md:grid-cols-2 xl:grid-cols-4",
+  data = DEMO_MORE_EXPLORE_DATA.filter((_, i) => i < 4),
 }) => {
   const [tabActive, setTabActive] = useState("Man");
 
@@ -76,7 +76,7 @@ const SectionGridMoreExplore: FC<SectionGridMoreExploreProps> = ({
         >
           Start exploring.
         </Heading>
-        <Nav
+        {/* <Nav
           className="p-1 bg-white dark:bg-neutral-800 rounded-full shadow-lg overflow-x-auto hiddenScrollbar"
           containerClassName="mb-12 lg:mb-14 relative flex justify-center w-full text-sm md:text-base"
         >
@@ -152,7 +152,7 @@ const SectionGridMoreExplore: FC<SectionGridMoreExploreProps> = ({
               </div>
             </NavItem2>
           ))}
-        </Nav>
+        </Nav> */}
       </div>
     );
   };
