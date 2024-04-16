@@ -6,6 +6,7 @@ import Heading from "@/components/Heading/Heading";
 import React, { FC, useId, useRef, useState } from "react";
 import { useEffect } from "react";
 import clientSayMain from "@/images/clientSayMain.png";
+import clientSayMain1 from "@/images/avatar.jpg";
 import clientSay1 from "@/images/clientSay1.png";
 import clientSay2 from "@/images/clientSay2.png";
 import clientSay3 from "@/images/clientSay3.png";
@@ -96,7 +97,7 @@ const SectionClientSay: FC<SectionClientSayProps> = ({ className = "" }) => {
       <div className="relative md:mb-16 max-w-2xl mx-auto">
         {renderBg()}
 
-        <Image className="mx-auto" src={clientSayMain} alt="" />
+        <Image className="mx-auto" src={clientSayMain1} alt="" />
         <div
           ref={sliderRef}
           className={`mt-12 lg:mt-16 relative ${isShow ? "" : "invisible"}`}
