@@ -101,7 +101,7 @@ export default function DropdownCategories() {
                     {CATEGORIES.map((item, index) => (
                       <Link
                         key={index}
-                        href={"/collection"}
+                        href={"/not-found"}
                         onClick={() => close()}
                         className={`flex items-center focus:outline-none focus-visible:ring-0 ${
                           item.active ? "" : ""
