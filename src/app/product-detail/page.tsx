@@ -424,9 +424,9 @@ const ProductDetailPage = () => {
 
           <hr className="border-slate-200 dark:border-slate-700" />
 
-          {renderReviews()}
+          {/* {renderReviews()}
 
-          <hr className="border-slate-200 dark:border-slate-700" />
+          <hr className="border-slate-200 dark:border-slate-700" /> */}
 
           {/* OTHER SECTION */}
           <SectionSliderProductCard
