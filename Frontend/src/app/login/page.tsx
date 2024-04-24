@@ -5,11 +5,8 @@ import Link from "next/link";
 import RootLayout from "../layout";
 import ButtonSecondary from "@/shared/Button/ButtonSecondary";
 
-export interface LoginFormProps {
-  onCloseModalQuickLogin: () => void;
-}
 
-const LoginForm: FC<LoginFormProps> = ({ onCloseModalQuickLogin }) => {
+const LoginForm: FC = ({  }) => {
   return (
     <RootLayout params hideHeader={true} hideFooter={true}>
       <div className="container mb-24 lg:mb-32">
