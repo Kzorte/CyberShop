@@ -248,31 +248,58 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-// Creating endpoint for user login
-app.post("/login", async (req, res) => {
-  let user = await Users.findOne({ email: req.body.email });
-  if (user) {
-    const passCompare = req.body.password === user.password;
-    if (passCompare) {
+// User login
+app.post('/login', async (req, res) => {
+  try {
+    let user = await Users.findOne({ email: req.body.email });
+    if (user) {
+        const passCompare = req.body.password === user.password;
+        if (passCompare) {
+            const data = {
+                user: {
+                    id: user.id
+                }
+            };
+            const token = jwt.sign(data, 'secret_ecom');
+            res.json({ success: true, token });
+          } else {
+                  res.status(401).json({ success: false, error: "Wrong Password" });
+            }
+        } else {
+            res.status(404).json({ success: false, error: "User not found" });
+        }
+    } catch (error) {
+        console.error("Error during user login:", error);
+        res.status(500).json({ success: false, error: "Failed to login" });
+    }
+});
+
+//Admin Login
+app.post("/admin/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // Periksa apakah email dan password sesuai dengan admin
+    if (email === adminData.email && password === adminData.password) {
       const data = {
         user: {
-          id: user.id,
+          email: adminData.email,
+          // role: "admin", // Menambahkan role admin pada data user
         },
       };
-      const token = jwt.sign(data, "secret_ecom");
+
+      // Buat token JWT untuk admin
+      const token = jwt.sign(data, "secret_key", { expiresIn: "1h" });
+
+      // Kirim token sebagai respons
       res.json({ success: true, token });
     } else {
-      res.json({ success: false, error: "Wrong Password" });
+      // Jika email atau password tidak sesuai, kirim pesan kesalahan
+      res.status(401).json({ success: false, error: "Unauthorized" });
     }
-  } else {
-    if (req.body.email === adminData.email && req.body.password === adminData.password) {
-      const token = jwt.sign({ email: adminData.email }, "secret_key", {
-        expiresIn: "1h",
-      });
-      res.json({ success: true, token });
-    } else{
-    res.json({ success: false, errors: "Wrong Email Id" });
-    }
+  } catch (error) {
+    console.error("Error during admin login:", error);
+    res.status(500).json({ success: false, error: "Failed to login as admin" });
   }
 });
 
