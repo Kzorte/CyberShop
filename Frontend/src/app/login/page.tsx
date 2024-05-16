@@ -1,12 +1,40 @@
-import React, { FC } from "react";
+"use client";
+
+import React, { FC, useState } from "react";
 import Input from "@/shared/Input/Input";
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
 import Link from "next/link";
 import RootLayout from "../layout";
 import ButtonSecondary from "@/shared/Button/ButtonSecondary";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
+const LoginForm: FC = () => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const router = useRouter();
 
-const LoginForm: FC = ({  }) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:3000/login", {
+        email,
+        password,
+      });
+      if (response.data.success) {
+        localStorage.setItem("token", response.data.token);
+        router.push("/");
+      } else {
+        setError(response.data.error || "Login failed");
+      }
+    } catch (err) {
+      console.error("Error during login:", err);
+      setError("An error occurred. Please try again.");
+    }
+  };
+
   return (
     <RootLayout params hideHeader={true} hideFooter={true}>
       <div className="container mb-24 lg:mb-32">
@@ -14,7 +42,8 @@ const LoginForm: FC = ({  }) => {
           Login
         </h2>
         <div className="max-w-md mx-auto space-y-6">
-          <form className="grid grid-cols-1 gap-6" action="#" method="post">
+          {error && <p className="text-red-600">{error}</p>}
+          <form className="grid grid-cols-1 gap-6" onSubmit={handleSubmit}>
             <label className="block">
               <span className="text-neutral-800 dark:text-neutral-200">
                 Email address
@@ -24,13 +53,21 @@ const LoginForm: FC = ({  }) => {
                 type="email"
                 placeholder="example@example.com"
                 className="mt-1"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </label>
             <label className="block">
               <span className="flex justify-between items-center text-neutral-800 dark:text-neutral-200">
                 Password
               </span>
-              <Input required type="password" className="mt-1" />
+              <Input
+                required
+                type="password"
+                className="mt-1"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </label>
             <ButtonPrimary type="submit">Continue</ButtonPrimary>
           </form>
@@ -42,9 +79,11 @@ const LoginForm: FC = ({  }) => {
             </Link>
             <br />
             <br />
-            <ButtonSecondary><a className="text-blue-600" href="/">
-              Back Home
-            </a></ButtonSecondary>
+            <ButtonSecondary>
+              <a className="text-blue-600" href="/">
+                Back Home
+              </a>
+            </ButtonSecondary>
           </span>
         </div>
       </div>

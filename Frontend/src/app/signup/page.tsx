@@ -1,14 +1,46 @@
-import React, { FC } from "react";
+"use client";
+
+import React, { FC, useState } from "react";
 import Input from "@/shared/Input/Input";
 import ButtonPrimary from "@/shared/Button/ButtonPrimary";
 import Image from "next/image";
 import Link from "next/link";
 import RootLayout from "../layout";
 import ButtonSecondary from "@/shared/Button/ButtonSecondary";
-
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const PageSignUp = () => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [rePassword, setRePassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
+const router = useRouter();
+
+const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  e.preventDefault();
+  if (password !== rePassword) {
+    setError("Passwords do not match");
+    return;
+  }
+
+  try {
+    const response = await axios.post("http://localhost:3000/signup", {
+      email,
+      password,
+    });
+    if (response.data.success) {
+      router.push("/login");
+    } else {
+      setError(response.data.errors);
+    }
+  } catch (err) {
+    console.error(err);
+    setError("An error occurred. Please try again.");
+  }
+};
   const params = {};
+
   return (
     <RootLayout params={params} hideHeader={true} hideFooter={true}>
       <div className={`nc-PageSignUp `} data-nc-id="PageSignUp">
@@ -18,8 +50,8 @@ const PageSignUp = () => {
           </h2>
           <div className="max-w-md mx-auto space-y-6 ">
             {/* FORM */}
-            <form className="grid grid-cols-1 gap-6" action="#" method="post">
-            <label className="block">
+            <form className="grid grid-cols-1 gap-6" onSubmit= {handleSubmit} >
+              {/* <label className="block">
                 <span className="text-neutral-800 dark:text-neutral-200">
                   First name
                 </span>
@@ -38,28 +70,45 @@ const PageSignUp = () => {
                   placeholder="Enter Your Last Name*"
                   className="mt-1"
                 />
-              </label>
+              </label> */}
               <label className="block">
                 <span className="text-neutral-800 dark:text-neutral-200">
                   Email address
                 </span>
-                <Input required
+                <Input
+                  required
                   type="email"
                   placeholder="example@example.com"
                   className="mt-1"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </label>
               <label className="block">
                 <span className="flex justify-between items-center text-neutral-800 dark:text-neutral-200">
                   Password
                 </span>
-                <Input required type="password" placeholder="Enter Your Password*" className="mt-1" />
+                <Input
+                  required
+                  type="password"
+                  placeholder="Enter Your Password*"
+                  className="mt-1"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </label>
               <label className="block">
                 <span className="flex justify-between items-center text-neutral-800 dark:text-neutral-200">
                   Re-enter password
                 </span>
-                <Input required type="password" placeholder="Enter Your Password*" className="mt-1" />
+                <Input
+                  required
+                  type="password"
+                  placeholder="Enter Your Password*"
+                  className="mt-1"
+                  value={rePassword}
+                  onChange={(e) => setRePassword(e.target.value)}
+                />
               </label>
               <ButtonPrimary type="submit">Continue</ButtonPrimary>
             </form>
@@ -70,10 +119,13 @@ const PageSignUp = () => {
               <Link className="text-green-600" href="/login">
                 Sign in
               </Link>
-              <br /><br />
-              <ButtonSecondary><a className="text-blue-600" href="/">
-                Back Home
-              </a></ButtonSecondary>
+              <br />
+              <br />
+              <ButtonSecondary>
+                <a className="text-blue-600" href="/">
+                  Back Home
+                </a>
+              </ButtonSecondary>
             </span>
           </div>
         </div>

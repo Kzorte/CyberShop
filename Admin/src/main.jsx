@@ -1,15 +1,11 @@
-// main.jsx
 import React from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App.jsx';
+import { createRoot } from 'react-dom/client'; // Mengimpor createRoot dari react-dom/client
+import App from './App';
 import './index.css';
-import { BrowserRouter } from 'react-router-dom';
 
-const root = createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root')); // Menggunakan createRoot dari react-dom/client
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <App />
   </React.StrictMode>
 );
