@@ -1,0 +1,35 @@
+/* HomePage.css */
+.home-container {
+    text-align: center;
+    padding: 50px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+  }
+  
+  .home-header h1 {
+    margin-bottom: 20px;
+  }
+  
+  .home-main p {
+    margin-bottom: 30px;
+  }
+  
+  .home-actions button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .home-actions button:hover {
+    background-color: #0056b3;
+  }
+  
