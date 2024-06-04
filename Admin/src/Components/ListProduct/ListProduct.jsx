@@ -131,7 +131,7 @@ return (
             onClick={() => edit_product(product)}
             className="listproduct-edit-button"
           >
-            Edit
+            <b>Edit</b>
           </button>
           <button
             onClick={() => remove_product(product.id)}

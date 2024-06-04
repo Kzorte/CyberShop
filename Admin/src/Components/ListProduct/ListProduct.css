@@ -69,18 +69,22 @@
     }
 }
 .listproduct-edit-button{
+    display: flex;
     cursor: pointer;
     border-radius: 25px;
     height: 30px;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
     margin: 10px 10px;
 
 }
 .listproduct-remove-button{
+    display: flex;
     cursor: pointer;
     border-radius: 25px;
     height: 30px;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
     margin: 10px 10px;
 }
 
