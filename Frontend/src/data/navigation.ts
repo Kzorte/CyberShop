@@ -195,7 +195,7 @@ export const NAVIGATION_DEMO_2: NavItemType[] = [
   },
   {
     id: ncNanoId(),
-    href: "/not-found",
+    href: "/cybershopcare",
     name: "CyberShop Care",
   },
   {

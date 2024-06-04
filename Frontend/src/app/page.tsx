@@ -48,40 +48,6 @@ function PageHome() {
         <div className="py-24 lg:py-32 border-t border-b border-slate-200 dark:border-slate-700">
           <SectionHowItWork />
         </div>
-        {/* <SectionPromo1 /> */}
-
-        {/* <div className="relative py-24 lg:py-32">
-          <BackgroundSection />
-          <SectionGridMoreExplore />
-        </div>
-
-        <SectionSliderProductCard
-          heading="Best Sellers"
-          subHeading="Best selling of the month"
-        /> */}
-
-        {/* <SectionPromo2 /> */}
-
-        {/* <SectionSliderLargeProduct cardStyle="style2" /> */}
-
-        {/* <SectionSliderCategories /> */}
-
-        {/* <SectionPromo3 /> */}
-
-        {/* <SectionGridFeatureItems /> */}
-
-        {/* <div className="relative py-24 lg:py-32">
-          <BackgroundSection />
-          <div>
-            <Heading rightDescText="From the Ciseco blog">
-              The latest news
-            </Heading>
-            <SectionMagazine5 />
-            <div className="flex mt-16 justify-center">
-              <ButtonSecondary>Show all blog articles</ButtonSecondary>
-            </div>
-          </div>
-        </div> */}
         <SectionClientSay />
       </div>
     </div>
