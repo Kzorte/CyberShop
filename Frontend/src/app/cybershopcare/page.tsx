@@ -47,7 +47,7 @@ const PageCyberCare = () => {
                         ))}
                         <div className="">
                             <h3 className="uppercase font-semibold text-sm dark:text-neutral-200 tracking-wider">
-                                SOCIALS
+                                SOCIAL
                             </h3>
                             <SocialsList className="mt-2" />
                         </div>
