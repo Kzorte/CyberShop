@@ -22,16 +22,24 @@ import explore10Png from "@/images/collections/iphone1.png";
 import explore11Png from "@/images/collections/hero-2.png";
 import explore12Png from "@/images/collections/hero-3.png";
 import explore13Png from "@/images/collections/hero-4.png";
+import { Route } from "next";
+
 
 export interface ExploreType {
   id: number;
   name: string;
   desc: string;
+  href: CustomRoute;
   image: string | StaticImageData;
   svgBg: string;
   color?: string;
   count?: number;
 }
+
+const smartphoneRoute: CustomRoute = { pathname: "/category/smartphone" };
+const smartwatchRoute: CustomRoute = { pathname: "/category/smartwatch" };
+const laptopRoute: CustomRoute = { pathname: "/category/laptop" };
+const tvRoute: CustomRoute = { pathname: "/category/tv" };
 
 export const  DEMO_MORE_EXPLORE_DATA_2: ExploreType[] = [
   {
@@ -39,7 +47,7 @@ export const  DEMO_MORE_EXPLORE_DATA_2: ExploreType[] = [
     name: "Smartphone",
     desc: "Electronic",
     image: explore10Png,
-    href: "/category/smartphone",
+    href: smartphoneRoute,
     svgBg: explore9Svg,
     color: "bg-orange-50",
     count: 343,
@@ -49,7 +57,7 @@ export const  DEMO_MORE_EXPLORE_DATA_2: ExploreType[] = [
     name: "Smartwatch",
     desc: "Electronic",
     image: explore12Png,
-    href: "/category/smartwatch",
+    href: smartwatchRoute,
     svgBg: explore5Svg,
     color: "bg-blue-50",
     count: 222,
@@ -59,7 +67,7 @@ export const  DEMO_MORE_EXPLORE_DATA_2: ExploreType[] = [
     name: "Laptop",
     desc: "Electronic",
     image: explore11Png,
-    href: "/category/laptop",
+    href: laptopRoute,
     svgBg: explore6Svg,
     color: "bg-orange-50",
     count: 155,
@@ -69,65 +77,15 @@ export const  DEMO_MORE_EXPLORE_DATA_2: ExploreType[] = [
     name: "TV",
     desc: "Electronic",
     image: explore13Png,
-    href: "/category/tv",
+    href: tvRoute,
     svgBg: explore7Svg,
     color: "bg-stone-100",
     count: 98,
   },
 ];
 export const DEMO_MORE_EXPLORE_DATA: ExploreType[] = [
-  {
-    id: 1,
-    name: "Backpack",
-    desc: "Electronic",
-    image: explore1Png,
-    svgBg: explore1Svg,
-    color: "bg-indigo-50",
-    count: 155,
-  },
-  {
-    id: 2,
-    name: "Shoes",
-    desc: "Electronic",
-    image: explore2Png,
-    svgBg: explore2Svg,
-    color: "bg-slate-100/80",
-    count: 22,
-  },
-  {
-    id: 3,
-    name: "Recycled Blanket",
-    desc: "Electronic",
-    image: explore3Png,
-    svgBg: explore3Svg,
-    color: "bg-violet-50",
-    count: 144,
-  },
-  {
-    id: 4,
-    name: "Cycling Shorts",
-    desc: "Electronic",
-    image: explore9Png,
-    svgBg: explore9Svg,
-    color: "bg-orange-50",
-    count: 343,
-  },
-  {
-    id: 5,
-    name: "Cycling Jersey",
-    desc: "Electronic",
-    image: explore5Png,
-    svgBg: explore5Svg,
-    color: "bg-blue-50",
-    count: 222,
-  },
-  {
-    id: 6,
-    name: "Car Coat",
-    desc: "Electronic",
-    image: explore6Png,
-    svgBg: explore6Svg,
-    color: "bg-orange-50",
-    count: 155,
-  },
 ];
+export interface CustomRoute {
+  pathname: string;
+  // Anda dapat menambahkan properti lain seperti query, hash, dll. jika diperlukan
+}

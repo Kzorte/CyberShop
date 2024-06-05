@@ -49,6 +49,7 @@ const SectionGridMoreExplore: FC<SectionGridMoreExploreProps> = ({
             key={item.id}
             color={item.color}
             {...item}
+            href={item.href}
           />
         );
 
