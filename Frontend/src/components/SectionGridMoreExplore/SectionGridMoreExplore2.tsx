@@ -7,7 +7,7 @@ import Nav from "@/shared/Nav/Nav";
 import { PRODUCTS } from "@/data/data";
 import ProductCard from "../ProductCard";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 
 export interface SectionGridMoreExploreProps {
   className?: string;
