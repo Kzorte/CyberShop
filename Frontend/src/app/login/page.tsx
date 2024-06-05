@@ -24,7 +24,7 @@ const PageLogin = () => {
       console.log('Logging in with:', email, password); // Debug log
       const response = await login(email, password);
       console.log('Login response:', response); // Log the response
-      if (response.ok) {
+      if (response) {
         router.push('/page');
       } else {
         setError('Login gagal. Silakan periksa kredensial Anda dan coba lagi.');
