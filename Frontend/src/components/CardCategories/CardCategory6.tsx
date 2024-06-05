@@ -4,6 +4,7 @@ import explore1Svg from "@/images/collections/explore1.svg";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import { Route } from "next";
 
 export interface CardCategory6Props {
   className?: string;
@@ -11,6 +12,7 @@ export interface CardCategory6Props {
   bgSVG?: string;
   name: string;
   desc: string;
+  href: Route;
   color?: string;
 }
 
@@ -20,6 +22,7 @@ const CardCategory6: FC<CardCategory6Props> = ({
   bgSVG = explore1Svg,
   name,
   desc,
+  href,
   color = "bg-rose-50",
 }) => {
   return (
@@ -50,7 +53,7 @@ const CardCategory6: FC<CardCategory6Props> = ({
           </div>
 
           <Link
-            href={"/not-found"}
+            href={href}
             className="h-5 flex items-center text-sm font-medium group-hover:text-primary-500 transition-colors"
           >
             <span>See Collection</span>
@@ -58,8 +61,6 @@ const CardCategory6: FC<CardCategory6Props> = ({
           </Link>
         </div>
       </div>
-
-      <Link href={"/not-found"}></Link>
     </div>
   );
 };

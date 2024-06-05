@@ -1,0 +1,53 @@
+/* LoginPage.css */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif; /* Memastikan font seragam */
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Menggunakan 100% dari tinggi layar */
+  background: #f4f4f9; /* Warna latar belakang halus */
+}
+
+h1 {
+  color: #333; /* Warna teks untuk judul */
+  font-size: 2.5rem; /* Ukuran font yang besar untuk judul */
+  margin-bottom: 20px; /* Spasi di bawah judul */
+}
+
+/* Style spesifik untuk form login yang ada di komponen <Login> */
+.login-form {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Menambahkan bayangan untuk kedalaman */
+  width: 90%; /* Lebar form login, maksimal 400px */
+  max-width: 400px;
+}
+
+/* Styling untuk input dan tombol di dalam form login */
+input[type="email"], input[type="password"], button {
+  width: 100%; /* Mengisi penuh lebar kontainer */
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px; /* Border bulat */
+  border: 1px solid #ccc; /* Border berwarna abu-abu */
+}
+
+button {
+  background-color: #5c67f2; /* Warna tombol biru */
+  color: white;
+  font-size: 1rem;
+  border: none; /* Menghilangkan border */
+  cursor: pointer; /* Cursor pointer untuk interaksi */
+  transition: background-color 0.3s; /* Transisi warna latar saat di-hover */
+}
+
+button:hover {
+  background-color: #4a54e1; /* Warna saat hover */
+}

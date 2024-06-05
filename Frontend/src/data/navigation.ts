@@ -56,6 +56,7 @@ export const MEGAMENU_TEMPLATES: NavItemType[] = [
   },
 ];
 
+
 const OTHER_PAGE_CHILD: NavItemType[] = [
   {
     id: ncNanoId(),
@@ -64,17 +65,17 @@ const OTHER_PAGE_CHILD: NavItemType[] = [
   },
   {
     id: ncNanoId(),
-    href: "/collection",
+    href: "/collection?category=Laptop",
     name: "Laptop",
   },
   {
     id: ncNanoId(),
-    href: "/collection",
+    href: "/collection?category=TV",
     name: "TV",
   },
   {
     id: ncNanoId(),
-    href: "/collection",
+    href: "/collection?category=Smartwatch",
     name: "Smartwatch",
   },
   // {
@@ -233,9 +234,9 @@ export const NAVIGATION_DEMO_2: NavItemType[] = [
   // },
   {
     id: ncNanoId(),
-    href: "/",
+    href: "/collection",
     name: "Kategori",
-    type: "dropdown",
-    children: OTHER_PAGE_CHILD,
+    // type: "dropdown",
+    // children: OTHER_PAGE_CHILD,
   },
 ];

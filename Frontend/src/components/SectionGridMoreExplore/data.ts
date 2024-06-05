@@ -33,12 +33,13 @@ export interface ExploreType {
   count?: number;
 }
 
-export const DEMO_MORE_EXPLORE_DATA_2: ExploreType[] = [
+export const  DEMO_MORE_EXPLORE_DATA_2: ExploreType[] = [
   {
     id: 4,
     name: "Smartphone",
     desc: "Electronic",
     image: explore10Png,
+    href: "/category/smartphone",
     svgBg: explore9Svg,
     color: "bg-orange-50",
     count: 343,
@@ -48,6 +49,7 @@ export const DEMO_MORE_EXPLORE_DATA_2: ExploreType[] = [
     name: "Smartwatch",
     desc: "Electronic",
     image: explore12Png,
+    href: "/category/smartwatch",
     svgBg: explore5Svg,
     color: "bg-blue-50",
     count: 222,
@@ -57,6 +59,7 @@ export const DEMO_MORE_EXPLORE_DATA_2: ExploreType[] = [
     name: "Laptop",
     desc: "Electronic",
     image: explore11Png,
+    href: "/category/laptop",
     svgBg: explore6Svg,
     color: "bg-orange-50",
     count: 155,
@@ -66,6 +69,7 @@ export const DEMO_MORE_EXPLORE_DATA_2: ExploreType[] = [
     name: "TV",
     desc: "Electronic",
     image: explore13Png,
+    href: "/category/tv",
     svgBg: explore7Svg,
     color: "bg-stone-100",
     count: 98,

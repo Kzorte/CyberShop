@@ -1,39 +1,54 @@
 "use client";
 
 import React, { FC, useEffect, useState } from "react";
-import CardCategory1 from "@/components/CardCategories/CardCategory1";
-import CardCategory4 from "@/components/CardCategories/CardCategory4";
 import Heading from "@/components/Heading/Heading";
 import NavItem2 from "@/components/NavItem2";
 import Nav from "@/shared/Nav/Nav";
-import CardCategory6 from "@/components/CardCategories/CardCategory6";
-import { DEMO_MORE_EXPLORE_DATA, ExploreType } from "./data";
+import { PRODUCTS } from "@/data/data";
+import ProductCard from "../ProductCard";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export interface SectionGridMoreExploreProps {
   className?: string;
   gridClassName?: string;
   boxCard?: "box1" | "box4" | "box6";
-  data?: ExploreType[];
+  data?: any[];
 }
 
-const SectionGridMoreExplore: FC<SectionGridMoreExploreProps> = ({
+const SectionGridMoreExplore2: FC<SectionGridMoreExploreProps> = ({
   className = "",
   gridClassName = "grid-cols-2 md:grid-cols-2 xl:grid-cols-4",
-  data: initialData = DEMO_MORE_EXPLORE_DATA.filter((_, i) => i < 4),
+  data: initialData = [],
 }) => {
-  const [filteredData, setFilteredData] = useState(initialData);
+  const [filteredData, setFilteredData] = useState(PRODUCTS);
   const [tabActive, setTabActive] = useState("All Items");
+  const router = useRouter();
 
   useEffect(() => {
-    localStorage.setItem("tabActive", tabActive);
+    if (router.query && router.query.category && typeof router.query.category === 'string') {
+      setTabActive(router.query.category);
+    } else {
+      setTabActive("All Items");
+    }
+  }, [router.query]);  
+
+  useEffect(() => {
+    if (tabActive === "All Items") {
+      setFilteredData(PRODUCTS);
+    } else {
+      setFilteredData(PRODUCTS.filter(product => product.category === tabActive));
+    }
   }, [tabActive]);
 
-  useEffect(() => {
-    const savedTabActive = localStorage.getItem("tabActive");
-    if (savedTabActive) {
-      setTabActive(savedTabActive);
+  const handleTabClick = (category: string) => {
+    setTabActive(category);
+    if (category === "All Items") {
+      setFilteredData(PRODUCTS);
+    } else {
+      setFilteredData(PRODUCTS.filter(product => product.category === category));
     }
-  }, []);
+  };
 
   const renderHeading = () => {
     return (
@@ -44,36 +59,35 @@ const SectionGridMoreExplore: FC<SectionGridMoreExploreProps> = ({
           isCenter
           desc=""
         >
-          Kategori
+          Category
         </Heading>
         <Nav
           className="p-1 bg-white dark:bg-neutral-800 rounded-full shadow-lg overflow-x-auto Scrollbar sm:text-md"
           containerClassName="mb-4 md:mb-12 lg:mb-14 relative flex justify-center w-full text-sm md:text-base"
         >
           {[
-            { name: "All Items", isActive: true },
-            { name: "SmartPhone" },
-            { name: "Smartwatch" },
-            { name: "Laptop" },
-            { name: "TV" },
+            { name: "All Items", link: { pathname: "/collection" } },
+            { name: "SmartPhone", link: { pathname: "/collection", query: { category: "SmartPhone" } } },
+            { name: "Smartwatch", link: { pathname: "/collection", query: { category: "Smartwatch" } } },
+            { name: "Laptop", link: { pathname: "/collection", query: { category: "Laptop" } } },
+            { name: "TV", link: { pathname: "/collection", query: { category: "TV" } } },
           ].map((item, index) => (
-            <NavItem2
-              key={index}
-              isActive={tabActive === item.name}
-              onClick={() => handleTabClick(item.name)}
-            >
-              {item.name}
-            </NavItem2>
+            <Link key={index} href={item.link} passHref>
+              <NavItem2 isActive={tabActive === item.name} onClick={() => handleTabClick(item.name)}>
+                {item.name}
+              </NavItem2>
+            </Link>
           ))}
         </Nav>
+        <div className="flex-1 ">
+          <div className={`flex-1 grid sm:grid-cols-2 xl:grid-cols-4 gap-x-8 gap-y-10 ${gridClassName}`}>
+            {filteredData.map((product, index) => (
+              <ProductCard key={index} data={product} />
+            ))}
+          </div>
+        </div>
       </div>
     );
-  };
-
-  const handleTabClick = (category: string) => {
-    setTabActive(category);
-    const newData = initialData.filter((item) => item.desc === category);
-    setFilteredData(newData);
   };
 
   return (
@@ -83,4 +97,4 @@ const SectionGridMoreExplore: FC<SectionGridMoreExploreProps> = ({
   );
 };
 
-export default SectionGridMoreExplore;
+export default SectionGridMoreExplore2;
